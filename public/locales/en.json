@@ -1,0 +1,39 @@
+{
+  "appName": "SudoBotz",
+  "appDescription": "Discord Gang Management Bot - Complete server management solution",
+  "version": "v0.0.5",
+  "documentation": "Documentation",
+  "github": "GitHub",
+  "panel": {
+    "title": "Panel",
+    "description": "Explore the best VPN panel with maximum customization capabilities"
+  },
+  "node": {
+    "title": "Node",
+    "description": "Discover SudoBotz Node and other features"
+  },
+  "commands": {
+    "title": "🎮 Bot Commands",
+    "description": "Complete list of all bot commands with detailed explanations and usage examples"
+  },
+  "search": {
+    "placeholder": "Search documentation...",
+    "button": "Search",
+    "title": "Search Documentation",
+    "noResults": "No results found",
+    "noResultsDescription": "Try a different search term",
+    "searching": "Searching...",
+    "instructions": "Type to search across all pages",
+    "shortcuts": {
+      "search": "to search",
+      "navigate": "to navigate",
+      "select": "to select"
+    }
+  },
+  "theme": {
+    "toggle": "Toggle theme",
+    "light": "Light",
+    "dark": "Dark",
+    "system": "System"
+  }
+}

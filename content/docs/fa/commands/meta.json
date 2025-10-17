@@ -1,0 +1,10 @@
+{
+  "title": "دستورات ربات",
+  "description": "مرجع کامل دستورات ربات دیسکورد",
+  "icon": "BotMessageSquare",
+  "pages": [
+    "craft",
+    "sunset",
+    "ticket"
+  ]
+}

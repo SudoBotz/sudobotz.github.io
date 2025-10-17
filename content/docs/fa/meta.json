@@ -1,0 +1,10 @@
+{
+  "title": "مستندات ربات گنگ",
+  "description": "راهنمای کامل ربات دیسکورد گنگ",
+  "icon": "Bot",
+  "pages": [
+    "...introduction",
+    "commands",
+    "...faq"
+  ]
+}

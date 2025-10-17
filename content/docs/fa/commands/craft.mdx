@@ -1,0 +1,162 @@
+---
+title: دستورات کرفت
+description: "دستورات و کامندهای مربوط به کرفت آیتم‌ها، ساخت اسلحه و دارو + مثال‌های آماده"
+icon: Wrench
+---
+
+import { Card, Cards } from "fumadocs-ui/components/card";
+import { 
+  Wrench, 
+  Hammer, 
+  Package, 
+  Zap, 
+  Shield, 
+  Sword, 
+  Pill, 
+  CheckCircle,
+  Clock,
+  Target,
+  Settings,
+  Layers
+} from 'lucide-react';
+
+> در این صفحه کامند های مربوط به کرفت آیتم‌ها رو میتونید بررسی کنید
+
+<Cards>
+
+  <Card title="/craft – کرفت آیتم" href="#کرفت-آیتم" icon={<Hammer className="w-5 h-5 text-orange-500" />}>
+    نمایش مواد و هزینهٔ لازم برای ساخت آیتم با جستجوی نام
+    
+  </Card>
+
+  <Card title="/kif – ساخت کیف" href="#ساخت-کیف" icon={<Package className="w-5 h-5 text-blue-500" />}>
+    انتخاب نوع و تعداد کیف برای ساخت
+    
+  </Card>
+
+  <Card title="/skin – کرفت اسکین" href="#کرفت-اسکین" icon={<Shield className="w-5 h-5 text-purple-500" />}>
+    انتخاب نوع و تعداد اسکین برای کرفت
+    
+  </Card>
+
+  <Card title="/gun1 – اسلحه سطح پایین" href="#اسلحه-سطح-پایین" icon={<Sword className="w-5 h-5 text-red-500" />}>
+    کرفت اسلحه از لِوِل 0 تا 8
+    
+  </Card>
+
+  <Card title="/gun2 – اسلحه سطح بالا" href="#اسلحه-سطح-بالا" icon={<Target className="w-5 h-5 text-red-600" />}>
+    کرفت اسلحه از لِوِل 8 تا 20
+    
+  </Card>
+
+  <Card title="/daroo – کرفت دارو" href="#کرفت-دارو" icon={<Pill className="w-5 h-5 text-green-500" />}>
+    انتخاب نوع و تعداد دارو برای کرفت
+    
+  </Card>
+
+  <Card title="/item – آیتم گنگ" href="#آیتم-گنگ" icon={<Layers className="w-5 h-5 text-indigo-500" />}>
+    ساخت آیتم‌های مخصوص گنگ
+    
+  </Card>
+
+  <Card title="/ahangari – آهنگری" href="#آهنگری" icon={<Settings className="w-5 h-5 text-yellow-500" />}>
+    کرفت آیتم‌های آهنگری و فلزکاری
+    
+  </Card>
+
+  <Card title="/craft-level – نمایش بر اساس لول" href="#نمایش-بر-اساس-لول" icon={<CheckCircle className="w-5 h-5 text-teal-500" />}>
+    نمایش آیتم‌های قابل ساخت بر اساس بازهٔ لول
+    
+  </Card>
+
+</Cards>
+
+### مثال های استفاده از دستورات
+در پایین میتونید نمونه دستورات رو ببینید
+
+### کرفت آیتم
+
+<Callout type="info" title="کرفت آیتم">
+جست‌وجو و نمایش مواد لازم برای ساخت آیتم:
+```
+/craft item:pistol amount:5
+```
+توی بخش item میتونید اون گان یا اسکین رو سرچ کنید
+</Callout>
+
+### ساخت کیف
+
+<Callout type="info" title="ساخت کیف">
+انتخاب نوع کیف و تعداد مورد نیاز:
+```
+
+/kif kif:KIF100 amount:10
+
+```
+</Callout>
+
+### کرفت اسکین
+
+<Callout type="info" title="کرفت اسکین">
+انتخاب نوع اسکین و تعداد:
+```
+/skin skin:GOLD amount:2
+```
+</Callout>
+
+### اسلحه سطح پایین
+
+<Callout type="info" title="اسلحه سطح پایین">
+کرفت اسلحه‌های لول 0 تا 8:
+```
+/gun1 weapons:HEAVYPISTOL amount:1
+```
+</Callout>
+
+### اسلحه سطح بالا
+
+<Callout type="info" title="اسلحه سطح بالا">
+کرفت اسلحه‌های لول 8 تا 20:
+```
+/gun2 weapons:CARBINERIFLEMK2 amount:1
+```
+</Callout>
+
+### کرفت دارو
+
+<Callout type="info" title="کرفت دارو">
+انتخاب نوع دارو و تعداد:
+```
+/daroo daro:ERYTHOPOIETIN amount:10
+```
+</Callout>
+
+### آیتم گنگ
+
+<Callout type="info" title="آیتم گنگ">
+ساخت آیتم‌های مخصوص گنگ:
+```
+/item item:LAPTOPHACK amount:3
+/item item:RADIO amount:1
+```
+</Callout>
+
+### آهنگری
+
+<Callout type="info" title="آهنگری">
+کرفت آیتم‌های آهنگری:
+```
+/ahangari ahangari:CARBON amount:2
+/ahangari ahangari:GunCleaner amount:1
+```
+</Callout>
+
+### نمایش بر اساس لول
+
+<Callout type="info" title="نمایش بر اساس لول">
+نمایش آیتم‌های قابل ساخت در بازهٔ لول مشخص:
+```
+/craft-level min_level:5 max_level:10
+```
+اگه دستور بالا رو بزنید ربات ایتم های که از لول 5 تا 10 انلاک میشود رو نمایش میده
+</Callout>

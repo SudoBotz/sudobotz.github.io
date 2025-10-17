@@ -1,0 +1,1162 @@
+@import 'tailwindcss';
+
+@plugin 'tailwindcss-animate';
+@import 'fumadocs-ui/css/neutral.css';
+@import 'fumadocs-ui/css/preset.css';
+
+@custom-variant dark (&:is(.dark *));
+
+/* shadcn/ui CSS variables */
+@layer base {
+  :root {
+    --background: 240 5% 96%;
+    --foreground: 240 5% 10%;
+    --muted: 240 5% 90%;
+    --muted-foreground: 240 5% 40%;
+    --card: 240 5% 98%;
+    --card-foreground: var(--foreground);
+    --popover: var(--background);
+    --popover-foreground: var(--foreground);
+    --border: 240 5% 80%;
+    --input: 240 6% 91%;
+    --input-placeholder: 240 5% 70%;
+    --primary: 216 46% 40%;
+    --primary-foreground: 240 5% 98%;
+    --secondary: 240 5% 90%;
+    --secondary-foreground: 240 5% 20%;
+    --accent: 240 5% 90%;
+    --accent-foreground: 240 5% 20%;
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 0 0% 98%;
+    --ring: 216 46% 40%;
+    --radius: 0.5rem;
+    --hover-primary: 216 46% 30%;
+    --hover-secondary: 240 5% 85%;
+    --hover-destructive: 0 84% 60%;
+    --success: 142 76% 36%;
+    --hover-success: 142 72% 29%;
+    --border-destructive-50: 0 72% 51%;
+    --bg-destructive-10: 0 72% 51%;
+    --hover-destructive-20: 0 72% 51%;
+    --bg-muted-50: 210 40% 96%;
+    --bg-accent-50: 210 40% 96%;
+    --bg-muted-40: 210 40% 96%;
+    --border-muted-40: 210 40% 96%;
+    --sidebar-background: 240 5% 90%;
+    --sidebar-foreground: 240 5% 20%;
+    --sidebar-primary: 216 46% 40%;
+    --sidebar-primary-foreground: 240 5% 98%;
+    --sidebar-accent: 240 5% 85%;
+    --sidebar-accent-foreground: 240 5% 10%;
+    --sidebar-border: 240 5% 80%;
+    --sidebar-ring: 216 46% 40%;
+    --sidebar-foreground-70: 240 5% 30%;
+    --neon-green: 81 96% 55%;
+    --background-custom: 240 5% 96%;
+    --chart-1: 221.2 83.2% 53.3%;
+    --chart-2: 212 95% 68%;
+    --chart-3: 216 92% 60%;
+    --chart-4: 210 98% 78%;
+    --chart-5: 212 97% 87%;
+    /* Scrollbar variables */
+    --scrollbar-track: 240 5% 96%;
+    --scrollbar-thumb: 240 5% 80%;
+    --scrollbar-thumb-hover: 240 5% 70%;
+    --scrollbar-thumb-active: 240 5% 60%;
+  }
+
+  .dark {
+    --chart-1: 221.2 83.2% 53.3%;
+    --chart-2: 212 95% 68%;
+    --chart-3: 216 92% 60%;
+    --chart-4: 210 98% 78%;
+    --chart-5: 212 97% 87%;
+    --background: 240 2% 11%;
+    --foreground: 0 0% 98%;
+    --muted: 0 0% 14.9%;
+    --muted-foreground: 0 0% 63.9%;
+    --card: 240 2% 11.5%;
+    --card-foreground: var(--foreground);
+    --popover: var(--background);
+    --popover-foreground: var(--foreground);
+    --border: 0 0% 18%;
+    --input: 240 2% 16.5%;
+    --input-placeholder: 0 0 30%;
+    --primary: 216 46% 53%;
+    --primary-foreground: 0 0% 5%;
+    --secondary: 216 46% 53%;
+    --secondary-foreground: 0 0% 5%;
+    --accent: 240 4% 16%;
+    --accent-foreground: 0 0% 98%;
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 210 40% 98%;
+    --ring: 215 16% 47%;
+    --radius: 0.5rem;
+    --hover-primary: 216 41% 49%;
+    --hover-secondary: 216 41% 49%;
+    --hover-destructive: 0 84% 60%;
+    --success: 142 76% 36%;
+    --hover-success: 142 72% 29%;
+    --border-destructive-50: 0 72% 51%;
+    --bg-destructive-10: 0 72% 51%;
+    --hover-destructive-20: 0 72% 51%;
+    --bg-muted-50: 210 40% 96%;
+    --bg-accent-50: 210 40% 96%;
+    --bg-muted-40: 210 40% 96%;
+    --border-muted-40: 210 40% 96%;
+    --sidebar-background: 240 2% 11%;
+    --sidebar-foreground: 0 0 71%;
+    --sidebar-primary: 0 100% 81%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: var(--accent);
+    --sidebar-accent-foreground: var(--accent-foreground);
+    --sidebar-border: 0 0% 20% / 0.8;
+    --sidebar-ring: 0 0% 64%;
+    --sidebar-foreground-70: 0 0% 98%;
+    --neon-green: 81 96% 55%;
+    --background-custom: 240 4% 8%;
+    /* Dark mode scrollbar variables */
+    --scrollbar-track: 240 2% 11%;
+    --scrollbar-thumb: 0 0% 25%;
+    --scrollbar-thumb-hover: 0 0% 35%;
+    --scrollbar-thumb-active: 0 0% 45%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  
+  /* Prevent white screen flash on load */
+  html {
+    background-color: hsl(240 5% 96%);
+    color-scheme: light;
+  }
+  
+  html.dark {
+    background-color: hsl(240 2% 11%);
+    color-scheme: dark;
+  }
+  
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* Font configurations */
+.font-inter {
+  font-family: var(--font-inter), system-ui, sans-serif;
+}
+
+.font-vazir {
+  font-family: var(--font-vazir), system-ui, sans-serif;
+}
+
+/* Hide Fumadocs default theme toggle */
+[data-theme-toggle] {
+  display: none !important;
+}
+
+/* Hide any button with "Toggle Theme" text that's not our custom one */
+button:has([data-lucide="sun"]):has([data-lucide="moon"]) {
+  display: none !important;
+}
+
+/* Hide Fumadocs default language switcher */
+button[aria-label="Choose a language"] {
+  display: none !important;
+}
+
+/* Alternative selector for fumadocs language switcher */
+button:has([data-lucide="languages"]) {
+  display: none !important;
+}
+
+/* RTL optimizations */
+[dir="rtl"] {
+  text-align: right;
+}
+
+[dir="rtl"] .sidebar {
+  right: 0;
+  left: auto;
+}
+
+  [dir="rtl"] button[aria-label*="copy"] {
+    direction: ltr !important;
+  }
+
+[dir="rtl"] .main-content {
+  margin-right: 0;
+  margin-left: auto;
+}
+
+/* RTL-specific adjustments for fumadocs components */
+[dir="rtl"] .fd-sidebar {
+  border-left: 1px solid hsl(var(--fd-border));
+  border-right: none;
+}
+
+[dir="rtl"] .fd-nav {
+  text-align: right;
+}
+
+[dir="rtl"] .fd-toc {
+  border-left: 1px solid hsl(var(--fd-border));
+  border-right: none;
+}
+
+/* RTL support for sidebar navigation items - more specific selectors */
+[dir="rtl"] .fd-sidebar a {
+  text-align: right !important;
+  direction: rtl !important;
+}
+
+[dir="rtl"] .fd-sidebar .fd-nav-item {
+  text-align: right !important;
+  direction: rtl !important;
+}
+
+[dir="rtl"] .fd-sidebar .fd-nav-item a {
+  text-align: right !important;
+  direction: rtl !important;
+}
+
+/* Override fumadocs specific classes for RTL */
+[dir="rtl"] .fd-sidebar a.text-start {
+  text-align: right !important;
+  direction: rtl !important;
+}
+
+[dir="rtl"] .fd-sidebar .text-start {
+  text-align: right !important;
+  direction: rtl !important;
+}
+
+/* RTL support for sidebar titles and descriptions */
+[dir="rtl"] .fd-sidebar h3,
+[dir="rtl"] .fd-sidebar h4,
+[dir="rtl"] .fd-sidebar .fd-nav-title {
+  text-align: right !important;
+  direction: rtl !important;
+}
+
+[dir="rtl"] .fd-sidebar .fd-nav-description {
+  text-align: right !important;
+  direction: rtl !important;
+}
+
+/* RTL support for all sidebar text elements */
+[dir="rtl"] .fd-sidebar * {
+  direction: rtl !important;
+}
+
+[dir="rtl"] .fd-sidebar a,
+[dir="rtl"] .fd-sidebar span,
+[dir="rtl"] .fd-sidebar div {
+  text-align: right !important;
+}
+
+/* Fix for sidebar navigation items in RTL */
+[dir="rtl"] .fd-sidebar .fd-nav-item {
+  text-align: right !important;
+  direction: rtl !important;
+}
+
+[dir="rtl"] .fd-sidebar .fd-nav-item a {
+  text-align: right !important;
+  direction: rtl !important;
+  display: block !important;
+}
+
+[dir="rtl"] h1 a.peer,
+[dir="rtl"] h2 a.peer,
+[dir="rtl"] h3 a.peer,
+[dir="rtl"] h4 a.peer,
+[dir="rtl"] h5 a.peer,
+[dir="rtl"] h6 a.peer {
+  text-align: right !important;
+  direction: rtl !important;
+}
+
+/* Ensure sidebar text is visible and properly aligned */
+[dir="rtl"] .fd-sidebar .fd-nav-item a span {
+  text-align: right !important;
+  direction: rtl !important;
+  display: block !important;
+}
+
+/* Fix for any missing text in sidebar */
+[dir="rtl"] .fd-sidebar .fd-nav-item a {
+  min-height: 2rem !important;
+  display: flex !important;
+  align-items: center !important;
+  text-align: right !important;
+  direction: rtl !important;
+}
+
+/* Ensure all text elements in sidebar are visible */
+[dir="rtl"] .fd-sidebar .fd-nav-item a * {
+  text-align: right !important;
+  direction: rtl !important;
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+}
+
+
+/* RTL text class */
+.rtl-text {
+  text-align: right !important;
+  direction: rtl !important;
+}
+
+/* More specific RTL overrides for fumadocs sidebar */
+[dir="rtl"] a[href*="/fa/"] {
+  text-align: right !important;
+  direction: rtl !important;
+}
+
+[dir="rtl"] .text-start {
+  text-align: right !important;
+  direction: rtl !important;
+}
+
+/* Override Tailwind's text-start class for RTL */
+[dir="rtl"] .text-start {
+  text-align: right !important;
+}
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+:root {
+  --radius: 0.625rem;
+  --background: oklch(1 0 0);
+  --foreground: oklch(0.145 0 0);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.145 0 0);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.145 0 0);
+  --primary: oklch(0.205 0 0);
+  --primary-foreground: oklch(0.985 0 0);
+  --secondary: oklch(0.97 0 0);
+  --secondary-foreground: oklch(0.205 0 0);
+  --muted: oklch(0.97 0 0);
+  --muted-foreground: oklch(0.556 0 0);
+  --accent: oklch(0.97 0 0);
+  --accent-foreground: oklch(0.205 0 0);
+  --destructive: oklch(0.577 0.245 27.325);
+  --border: oklch(0.922 0 0);
+  --input: oklch(0.922 0 0);
+  --ring: oklch(0.708 0 0);
+  --chart-1: oklch(0.646 0.222 41.116);
+  --chart-2: oklch(0.6 0.118 184.704);
+  --chart-3: oklch(0.398 0.07 227.392);
+  --chart-4: oklch(0.828 0.189 84.429);
+  --chart-5: oklch(0.769 0.188 70.08);
+  --sidebar: oklch(0.985 0 0);
+  --sidebar-foreground: oklch(0.145 0 0);
+  --sidebar-primary: oklch(0.205 0 0);
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: oklch(0.97 0 0);
+  --sidebar-accent-foreground: oklch(0.205 0 0);
+  --sidebar-border: oklch(0.922 0 0);
+  --sidebar-ring: oklch(0.708 0 0);
+}
+
+.dark {
+  --background: oklch(0.145 0 0);
+  --foreground: oklch(0.985 0 0);
+  --card: oklch(0.205 0 0);
+  --card-foreground: oklch(0.985 0 0);
+  --popover: oklch(0.205 0 0);
+  --popover-foreground: oklch(0.985 0 0);
+  --primary: oklch(0.922 0 0);
+  --primary-foreground: oklch(0.205 0 0);
+  --secondary: oklch(0.269 0 0);
+  --secondary-foreground: oklch(0.985 0 0);
+  --muted: oklch(0.269 0 0);
+  --muted-foreground: oklch(0.708 0 0);
+  --accent: oklch(0.269 0 0);
+  --accent-foreground: oklch(0.985 0 0);
+  --destructive: oklch(0.704 0.191 22.216);
+  --border: oklch(1 0 0 / 10%);
+  --input: oklch(1 0 0 / 15%);
+  --ring: oklch(0.556 0 0);
+  --chart-1: oklch(0.488 0.243 264.376);
+  --chart-2: oklch(0.696 0.17 162.48);
+  --chart-3: oklch(0.769 0.188 70.08);
+  --chart-4: oklch(0.627 0.265 303.9);
+  --chart-5: oklch(0.645 0.246 16.439);
+  --sidebar: oklch(0.205 0 0);
+  --sidebar-foreground: oklch(0.985 0 0);
+  --sidebar-primary: oklch(0.488 0.243 264.376);
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: oklch(0.269 0 0);
+  --sidebar-accent-foreground: oklch(0.985 0 0);
+  --sidebar-border: oklch(1 0 0 / 10%);
+  --sidebar-ring: oklch(0.556 0 0);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* Translate "On this page" text based on locale - target TOC title specifically */
+[lang="fa"] h3.inline-flex.items-center:has(svg) {
+  font-size: 0;
+}
+
+[lang="fa"] h3.inline-flex.items-center:has(svg)::after {
+  content: "در این صفحه";
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+[lang="ru"] h3.inline-flex.items-center:has(svg) {
+  font-size: 0;
+}
+
+[lang="ru"] h3.inline-flex.items-center:has(svg)::before {
+  content: "На этой странице";
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+[lang="zh"] h3.inline-flex.items-center:has(svg) {
+  font-size: 0;
+}
+
+[lang="zh"] h3.inline-flex.items-center:has(svg)::before {
+  content: "在此页面上";
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+/* Ensure code blocks are always LTR */
+pre, 
+code, 
+.prose pre,
+.prose code {
+  direction: ltr !important;
+  text-align: left !important;
+}
+
+/* Override RTL for code blocks in RTL pages */
+[dir="rtl"] pre,
+[dir="rtl"] code,
+[dir="rtl"] .prose pre,
+[dir="rtl"] .prose code {
+  direction: ltr !important;
+  text-align: left !important;
+  line-height: 1.5 !important;
+  margin: 0 !important;
+}
+
+/* Fix extra spacing in RTL code blocks */
+[dir="rtl"] pre {
+  margin: 0 !important;
+  line-height: 1.2 !important;
+  white-space: pre !important;
+  overflow-x: auto !important;
+}
+
+[dir="rtl"] pre code {
+  margin: 0 !important;
+  padding: 0 !important;
+  line-height: 1.2 !important;
+  white-space: pre !important;
+}
+
+/* Ensure inline code is also LTR */
+.prose code:not(pre code) {
+  direction: ltr !important;
+  text-align: left !important;
+  unicode-bidi: bidi-override;
+}
+
+/* Ensure anchor tags (links) are LTR */
+.prose a {
+  direction: ltr !important;
+  text-align: left !important;
+}
+
+[dir="rtl"] .prose a {
+  direction: ltr !important;
+  text-align: left !important;
+  unicode-bidi: embed;
+}
+
+/* Exception: Card links should respect RTL */
+[dir="rtl"] a[class*="block p-4 border"],
+[dir="rtl"] .prose a[class*="block p-4 border"] {
+  direction: rtl !important;
+  text-align: right !important;
+  unicode-bidi: normal !important;
+}
+
+[dir="rtl"] a[class*="block p-4 border"] h3,
+[dir="rtl"] a[class*="block p-4 border"] div,
+[dir="rtl"] .prose a[class*="block p-4 border"] h3,
+[dir="rtl"] .prose a[class*="block p-4 border"] div {
+  direction: rtl !important;
+  text-align: right !important;
+}
+
+/* Target common language classes specifically */
+[class*="language-"] {
+  direction: ltr !important;
+  text-align: left !important;
+}
+
+[dir="rtl"] [class*="language-"] {
+  direction: ltr !important;
+  text-align: left !important;
+  line-height: 1.5 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+/* Additional fixes for RTL code block spacing */
+[dir="rtl"] .prose pre {
+  margin: 0 !important;
+  line-height: 1.2 !important;
+  white-space: pre !important;
+  overflow-x: auto !important;
+}
+
+[dir="rtl"] .prose pre code {
+  margin: 0 !important;
+  padding: 0 !important;
+  line-height: 1.2 !important;
+  white-space: pre !important;
+  display: block !important;
+}
+
+/* Fix for TranslatedMDX code blocks in RTL */
+[dir="rtl"] .prose pre[dir="ltr"] {
+  margin: 0 !important;
+  line-height: 1.2 !important;
+  white-space: pre !important;
+  overflow-x: auto !important;
+}
+
+[dir="rtl"] .prose pre[dir="ltr"] code {
+  margin: 0 !important;
+  padding: 0 !important;
+  line-height: 1.2 !important;
+  white-space: pre !important;
+  display: block !important;
+}
+
+/* Ultra-specific override for RTL code blocks */
+[dir="rtl"] .prose pre[style*="padding: 0.25rem"] {
+  margin: 0 !important;
+  line-height: 1.2 !important;
+}
+
+[dir="rtl"] .prose pre[style*="padding: 0.25rem"] code {
+  padding: 0 !important;
+  margin: 0 !important;
+  line-height: 1.2 !important;
+}
+
+/* RTL chevron rotation for sidebar dropdown arrows - exclude copy buttons */
+[dir="rtl"] button[aria-expanded]:not([data-copy]):not([data-checked]):not([aria-label*="copy"]):not([aria-label*="Copy"]):not([title*="copy"]):not([title*="Copy"]):not(:has([data-lucide="copy"])) img:last-child,
+[dir="rtl"] button[aria-expanded]:not([data-copy]):not([data-checked]):not([aria-label*="copy"]):not([aria-label*="Copy"]):not([title*="copy"]):not([title*="Copy"]):not(:has([data-lucide="copy"])) svg:last-child {
+  transform: rotate(180deg) !important;
+}
+
+/* More specific selectors for fumadocs chevron - exclude copy buttons */
+[dir="rtl"] button[aria-expanded="true"]:not([data-copy]):not([data-checked]):not([aria-label*="copy"]):not([aria-label*="Copy"]):not([title*="copy"]):not([title*="Copy"]):not(:has([data-lucide="copy"])) img:last-child,
+[dir="rtl"] button[aria-expanded="true"]:not([data-copy]):not([data-checked]):not([aria-label*="copy"]):not([aria-label*="Copy"]):not([title*="copy"]):not([title*="Copy"]):not(:has([data-lucide="copy"])) svg:last-child {
+  transform: rotate(180deg) !important;
+}
+
+[dir="rtl"] button[aria-expanded="false"]:not([data-copy]):not([data-checked]):not([aria-label*="copy"]):not([aria-label*="Copy"]):not([title*="copy"]):not([title*="Copy"]):not(:has([data-lucide="copy"])) img:last-child,
+[dir="rtl"] button[aria-expanded="false"]:not([data-copy]):not([data-checked]):not([aria-label*="copy"]):not([aria-label*="Copy"]):not([title*="copy"]):not([title*="Copy"]):not(:has([data-lucide="copy"])) svg:last-child {
+  transform: rotate(180deg) !important;
+}
+
+/* Target the specific chevron icon in sidebar navigation - exclude copy buttons */
+[dir="rtl"] button:not([data-copy]):not([data-checked]):not([aria-label*="copy"]):not([aria-label*="Copy"]):not([title*="copy"]):not([title*="Copy"]):not(:has([data-lucide="copy"])) img[data-lucide="chevron-right"],
+[dir="rtl"] button:not([data-copy]):not([data-checked]):not([aria-label*="copy"]):not([aria-label*="Copy"]):not([title*="copy"]):not([title*="Copy"]):not(:has([data-lucide="copy"])) svg[data-lucide="chevron-right"] {
+  transform: rotate(180deg) !important;
+}
+
+/* Alternative selector for chevron icons - exclude copy buttons */
+[dir="rtl"] button:not([data-copy]):not([data-checked]):not([aria-label*="copy"]):not([aria-label*="Copy"]):not([title*="copy"]):not([title*="Copy"]):not(:has([data-lucide="copy"])):has(img[data-lucide="chevron-right"]),
+[dir="rtl"] button:not([data-copy]):not([data-checked]):not([aria-label*="copy"]):not([aria-label*="Copy"]):not([title*="copy"]):not([title*="Copy"]):not(:has([data-lucide="copy"])):has(svg[data-lucide="chevron-right"]) {
+  img:last-child,
+  svg:last-child {
+    transform: rotate(180deg) !important;
+  }
+}
+
+/* General RTL chevron rotation for any dropdown arrow - exclude copy buttons */
+[dir="rtl"] button:not([data-copy]):not([data-checked]):not([aria-label*="copy"]):not([aria-label*="Copy"]):not([title*="copy"]):not([title*="Copy"]):not(:has([data-lucide="copy"])) img:last-child,
+[dir="rtl"] button:not([data-copy]):not([data-checked]):not([aria-label*="copy"]):not([aria-label*="Copy"]):not([title*="copy"]):not([title*="Copy"]):not(:has([data-lucide="copy"])) svg:last-child {
+  transform: rotate(180deg) !important;
+}
+
+/* Target fumadocs specific classes - exclude copy buttons */
+[dir="rtl"] .fd-sidebar button:not([data-copy]):not([data-checked]):not([aria-label*="copy"]):not([aria-label*="Copy"]):not([title*="copy"]):not([title*="Copy"]):not(:has([data-lucide="copy"])) img:last-child,
+[dir="rtl"] .fd-sidebar button:not([data-copy]):not([data-checked]):not([aria-label*="copy"]):not([aria-label*="Copy"]):not([title*="copy"]):not([title*="Copy"]):not(:has([data-lucide="copy"])) svg:last-child {
+  transform: rotate(180deg) !important;
+}
+
+/* Fix copy button in RTL layouts */
+[dir="rtl"] [data-copy],
+[dir="rtl"] [data-checked],
+[dir="rtl"] button[aria-label*="copy"],
+[dir="rtl"] button[aria-label*="Copy"],
+[dir="rtl"] button[title*="copy"],
+[dir="rtl"] button[title*="Copy"] {
+  position: absolute !important;
+  direction: ltr !important;
+  text-align: center !important;
+  cursor: pointer !important;
+}
+
+/* General copy button cursor pointer */
+[data-copy],
+[data-checked],
+button[aria-label*="copy"],
+button[aria-label*="Copy"],
+button[title*="copy"],
+button[title*="Copy"],
+button:has([data-lucide="copy"]),
+button:has(svg[data-lucide="copy"]) {
+  cursor: pointer !important;
+}
+
+/* RTL code block copy button positioning */
+[dir="rtl"] pre:has([data-copy]),
+[dir="rtl"] pre:has([data-checked]),
+[dir="rtl"] pre:has(button[aria-label*="copy"]),
+[dir="rtl"] pre:has(button[aria-label*="Copy"]) {
+  position: relative !important;
+}
+
+[dir="rtl"] pre [data-copy],
+[dir="rtl"] pre [data-checked],
+[dir="rtl"] pre button[aria-label*="copy"],
+[dir="rtl"] pre button[aria-label*="Copy"] {
+  position: absolute !important;
+  right: 0.5rem !important;
+  left: auto !important;
+  top: 0.5rem !important;
+  direction: ltr !important;
+  text-align: center !important;
+  cursor: pointer !important;
+  z-index: 10 !important;
+}
+
+/* Ensure copy button text/icons are properly aligned in RTL */
+[dir="rtl"] [data-copy] *,
+[dir="rtl"] [data-checked] *,
+[dir="rtl"] button[aria-label*="copy"] *,
+[dir="rtl"] button[aria-label*="Copy"] * {
+  direction: ltr !important;
+  text-align: center !important;
+}
+
+/* Additional RTL fixes for fumadocs copy button */
+[dir="rtl"] .prose pre:has(button) {
+  position: relative !important;
+}
+
+[dir="rtl"] .prose pre button {
+  position: absolute !important;
+  right: 0.5rem !important;
+  left: auto !important;
+  top: 0.5rem !important;
+  cursor: pointer !important;
+  z-index: 10 !important;
+  direction: ltr !important;
+  text-align: center !important;
+}
+
+/* Fix for any copy button in code blocks */
+[dir="rtl"] pre button[data-lucide="copy"],
+[dir="rtl"] pre button:has([data-lucide="copy"]),
+[dir="rtl"] pre button:has(svg[data-lucide="copy"]) {
+  position: absolute !important;
+  right: 0.5rem !important;
+  left: auto !important;
+  top: 0.5rem !important;
+  cursor: pointer !important;
+  z-index: 10 !important;
+  direction: ltr !important;
+  text-align: center !important;
+}
+
+/* Ensure all interactive elements have pointer cursor */
+button, 
+[role="button"], 
+[data-copy],
+[aria-label*="copy"],
+[title*="copy"] {
+  cursor: pointer !important;
+}
+
+/* Responsive table styles */
+.prose table {
+  width: 100% !important;
+  max-width: 100% !important;
+  table-layout: auto !important;
+  border-collapse: collapse !important;
+  overflow-x: auto !important;
+  display: block !important;
+  white-space: nowrap !important;
+}
+
+.prose table thead,
+.prose table tbody,
+.prose table tr {
+  display: table !important;
+  width: 100% !important;
+  table-layout: fixed !important;
+}
+
+.prose table th,
+.prose table td {
+  word-wrap: break-word !important;
+  word-break: break-word !important;
+  overflow-wrap: break-word !important;
+  hyphens: auto !important;
+  padding: 0.75rem !important;
+  border: 1px solid hsl(var(--border)) !important;
+  vertical-align: top !important;
+  min-width: 0 !important;
+}
+
+/* Responsive table wrapper */
+.prose table {
+  overflow-x: auto !important;
+  display: block !important;
+  width: 100% !important;
+  max-width: 100% !important;
+}
+
+/* Table container for better responsive behavior */
+.prose > div:has(table) {
+  overflow-x: auto !important;
+  width: 100% !important;
+  max-width: 100% !important;
+}
+
+/* Modern Custom Scrollbar Styles */
+/* Webkit browsers (Chrome, Safari, Edge) */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: hsl(var(--scrollbar-track));
+  border-radius: 4px;
+  box-shadow: inset 0 0 2px rgba(0, 0, 0, 0.1);
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, hsl(var(--scrollbar-thumb)), hsl(var(--scrollbar-thumb-hover)));
+  border-radius: 4px;
+  transition: all 0.2s ease;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  border: 1px solid hsl(var(--scrollbar-track));
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, hsl(var(--scrollbar-thumb-hover)), hsl(var(--scrollbar-thumb-active)));
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+  transform: scale(1.05);
+}
+
+::-webkit-scrollbar-thumb:active {
+  background: hsl(var(--scrollbar-thumb-active));
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+  transform: scale(0.95);
+}
+
+::-webkit-scrollbar-corner {
+  background: hsl(var(--scrollbar-track));
+}
+
+/* Firefox scrollbar styles */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: hsl(var(--scrollbar-thumb)) hsl(var(--scrollbar-track));
+}
+
+/* Smooth scrolling for all elements */
+html {
+  scroll-behavior: smooth;
+}
+
+* {
+  scroll-behavior: smooth;
+}
+
+/* Enhanced scrollbar for sidebar */
+.fd-sidebar::-webkit-scrollbar {
+  width: 6px;
+}
+
+.fd-sidebar::-webkit-scrollbar-track {
+  background: hsl(var(--sidebar-background));
+  border-radius: 3px;
+}
+
+.fd-sidebar::-webkit-scrollbar-thumb {
+  background: hsl(var(--sidebar-accent));
+  border-radius: 3px;
+  transition: all 0.2s ease;
+}
+
+.fd-sidebar::-webkit-scrollbar-thumb:hover {
+  background: hsl(var(--sidebar-primary));
+}
+
+/* Enhanced scrollbar for main content */
+main::-webkit-scrollbar,
+.fd-main::-webkit-scrollbar {
+  width: 8px;
+}
+
+main::-webkit-scrollbar-track,
+.fd-main::-webkit-scrollbar-track {
+  background: hsl(var(--background));
+  border-radius: 4px;
+}
+
+main::-webkit-scrollbar-thumb,
+.fd-main::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, hsl(var(--scrollbar-thumb)), hsl(var(--scrollbar-thumb-hover)));
+  border-radius: 4px;
+  transition: all 0.2s ease;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+main::-webkit-scrollbar-thumb:hover,
+.fd-main::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, hsl(var(--scrollbar-thumb-hover)), hsl(var(--scrollbar-thumb-active)));
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+}
+
+/* Enhanced scrollbar for tables */
+.prose table::-webkit-scrollbar {
+  height: 6px;
+  width: 6px;
+}
+
+.prose table::-webkit-scrollbar-track {
+  background: hsl(var(--muted));
+  border-radius: 3px;
+}
+
+.prose table::-webkit-scrollbar-thumb {
+  background: hsl(var(--muted-foreground));
+  border-radius: 3px;
+  transition: all 0.2s ease;
+}
+
+.prose table::-webkit-scrollbar-thumb:hover {
+  background: hsl(var(--foreground));
+}
+
+/* Code block width limits */
+.prose pre {
+  max-width: 100% !important;
+  overflow-x: auto !important;
+  white-space: pre !important;
+  word-wrap: normal !important;
+  word-break: normal !important;
+}
+
+.prose pre code {
+  max-width: 100% !important;
+  overflow-x: auto !important;
+  white-space: pre !important;
+  word-wrap: normal !important;
+  word-break: normal !important;
+}
+
+/* Code block container improvements */
+.prose > div:has(pre) {
+  max-width: 100% !important;
+  overflow-x: auto !important;
+  position: relative !important;
+}
+
+/* Enhanced code block scrolling with modern styling */
+.prose pre::-webkit-scrollbar {
+  height: 8px !important;
+  width: 8px !important;
+}
+
+.prose pre::-webkit-scrollbar-track {
+  background: hsl(var(--scrollbar-track)) !important;
+  border-radius: 4px !important;
+}
+
+.prose pre::-webkit-scrollbar-thumb {
+  background: hsl(var(--scrollbar-thumb)) !important;
+  border-radius: 4px !important;
+  transition: all 0.2s ease !important;
+}
+
+.prose pre::-webkit-scrollbar-thumb:hover {
+  background: hsl(var(--scrollbar-thumb-hover)) !important;
+}
+
+.prose pre::-webkit-scrollbar-thumb:active {
+  background: hsl(var(--scrollbar-thumb-active)) !important;
+}
+
+.prose pre::-webkit-scrollbar-corner {
+  background: hsl(var(--scrollbar-track)) !important;
+}
+
+/* Responsive code blocks in containers */
+.prose > div:has(pre) {
+  max-width: 100% !important;
+  overflow-x: auto !important;
+}
+
+/* Grid container responsive fixes */
+.prose .grid {
+  max-width: 100% !important;
+  overflow-x: auto !important;
+  display: grid !important;
+  gap: 1rem !important;
+}
+
+.prose .grid > div {
+  min-width: 0 !important;
+  overflow-x: auto !important;
+  word-wrap: break-word !important;
+  word-break: break-word !important;
+}
+
+/* Responsive fixes for comparison tables */
+.prose .grid[class*="md:grid-cols-2"] {
+  display: grid !important;
+  grid-template-columns: 1fr !important;
+  gap: 1rem !important;
+}
+
+@media (min-width: 768px) {
+  .prose .grid[class*="md:grid-cols-2"] {
+    grid-template-columns: 1fr 1fr !important;
+  }
+}
+
+/* Ensure tables don't break layout */
+.prose table {
+  margin: 1rem 0 !important;
+  font-size: 0.875rem !important;
+}
+
+/* Mobile-first table responsiveness */
+@media (max-width: 768px) {
+  .prose table {
+    font-size: 0.75rem !important;
+  }
+  
+  .prose table th,
+  .prose table td {
+    padding: 0.5rem !important;
+  }
+  
+  /* Stack table columns on very small screens */
+  .prose table,
+  .prose thead,
+  .prose tbody,
+  .prose th,
+  .prose td,
+  .prose tr {
+    display: block !important;
+  }
+  
+  .prose thead tr {
+    position: absolute !important;
+    top: -9999px !important;
+    left: -9999px !important;
+  }
+  
+  .prose tr {
+    border: 1px solid hsl(var(--border)) !important;
+    margin-bottom: 0.5rem !important;
+    padding: 0.5rem !important;
+  }
+  
+  .prose td {
+    border: none !important;
+    border-bottom: 1px solid hsl(var(--border)) !important;
+    position: relative !important;
+    padding-left: 50% !important;
+    text-align: left !important;
+  }
+  
+  .prose td:before {
+    content: attr(data-label) ": " !important;
+    position: absolute !important;
+    left: 6px !important;
+    width: 45% !important;
+    padding-right: 10px !important;
+    white-space: nowrap !important;
+    font-weight: bold !important;
+  }
+}
+
+/* Additional table improvements for better readability */
+.prose table th {
+  background-color: hsl(var(--muted)) !important;
+  font-weight: 600 !important;
+  text-align: left !important;
+}
+
+.prose table tr:nth-child(even) {
+  background-color: hsl(var(--muted) / 0.5) !important;
+}
+
+.prose table tr:hover {
+  background-color: hsl(var(--accent) / 0.5) !important;
+}
+
+
+/* RTL-specific button positioning fixes */
+[dir="rtl"] button {
+  cursor: pointer !important;
+}
+
+/* Fix for fumadocs specific copy button classes */
+[dir="rtl"] .fd-copy,
+[dir="rtl"] [class*="copy"],
+[dir="rtl"] [class*="Copy"] {
+  position: absolute !important;
+  cursor: pointer !important;
+  z-index: 10 !important;
+  direction: ltr !important;
+  text-align: center !important;
+}
+
+/* Ensure copy buttons are NOT rotated in RTL */
+[dir="rtl"] [data-copy],
+[dir="rtl"] [data-copy] *,
+[dir="rtl"] [data-checked],
+[dir="rtl"] [data-checked] *,
+[dir="rtl"] button[aria-label*="copy"],
+[dir="rtl"] button[aria-label*="copy"] *,
+[dir="rtl"] button[aria-label*="Copy"],
+[dir="rtl"] button[aria-label*="Copy"] *,
+[dir="rtl"] button[title*="copy"],
+[dir="rtl"] button[title*="copy"] *,
+[dir="rtl"] button[title*="Copy"],
+[dir="rtl"] button[title*="Copy"] *,
+[dir="rtl"] button:has([data-lucide="copy"]),
+[dir="rtl"] button:has([data-lucide="copy"]) *,
+[dir="rtl"] button:has(svg[data-lucide="copy"]),
+[dir="rtl"] button:has(svg[data-lucide="copy"]) *,
+[dir="rtl"] .fd-copy,
+[dir="rtl"] .fd-copy *,
+[dir="rtl"] [class*="copy"],
+[dir="rtl"] [class*="copy"] *,
+[dir="rtl"] [class*="Copy"],
+[dir="rtl"] [class*="Copy"] * {
+  transform: none !important;
+  right: 0;
+}
+
+/* Specific fix for copy button icons (including thick/check icons) */
+[dir="rtl"] [data-copy] img,
+[dir="rtl"] [data-copy] svg,
+[dir="rtl"] [data-checked] img,
+[dir="rtl"] [data-checked] svg,
+[dir="rtl"] button[aria-label*="copy"] img,
+[dir="rtl"] button[aria-label*="copy"] svg,
+[dir="rtl"] button[aria-label*="Copy"] img,
+[dir="rtl"] button[aria-label*="Copy"] svg,
+[dir="rtl"] button[title*="copy"] img,
+[dir="rtl"] button[title*="copy"] svg,
+[dir="rtl"] button[title*="Copy"] img,
+[dir="rtl"] button[title*="Copy"] svg,
+[dir="rtl"] button:has([data-lucide="copy"]) img,
+[dir="rtl"] button:has([data-lucide="copy"]) svg,
+[dir="rtl"] button:has(svg[data-lucide="copy"]) img,
+[dir="rtl"] button:has(svg[data-lucide="copy"]) svg {
+  transform: none !important;
+}
+
+/* Target any button with multiple images in RTL - exclude copy buttons */
+[dir="rtl"] button:not([data-copy]):not([data-checked]):not([aria-label*="copy"]):not([aria-label*="Copy"]):not([title*="copy"]):not([title*="Copy"]):not(:has([data-lucide="copy"])):has(img) img:last-child,
+[dir="rtl"] button:not([data-copy]):not([data-checked]):not([aria-label*="copy"]):not([aria-label*="Copy"]):not([title*="copy"]):not([title*="Copy"]):not(:has([data-lucide="copy"])):has(svg) svg:last-child {
+  transform: rotate(180deg) !important;
+}
+
+/* Ultra-specific selector for sidebar navigation buttons */
+[dir="rtl"] .fd-sidebar button[aria-expanded] img:last-child,
+[dir="rtl"] .fd-sidebar button[aria-expanded] svg:last-child {
+  transform: rotate(180deg) !important;
+}
+
+/* Very broad RTL chevron rotation - catch all possible selectors */
+/* [dir="rtl"] * img:last-child,
+[dir="rtl"] * svg:last-child {
+  transform: rotate(180deg) !important;
+} */
+
+/* Target any element with multiple images in RTL */
+/* [dir="rtl"] button:has(img) img:last-child,
+[dir="rtl"] button:has(svg) svg:last-child {
+  transform: rotate(180deg) !important;
+} */
+
+/* Target any element with aria-expanded in RTL */
+/* [dir="rtl"] [aria-expanded] img:last-child,
+[dir="rtl"] [aria-expanded] svg:last-child {
+  transform: rotate(180deg) !important;
+} */

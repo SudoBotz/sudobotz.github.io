@@ -1,0 +1,113 @@
+---
+title: دستورات سانست
+description: "دستورات و کامندهای مربوط به سرور سانست + مثال‌های آماده"
+icon: Wrench
+---
+
+import { Card, Cards } from "fumadocs-ui/components/card";
+import {
+  Info,
+  Trophy,
+  Signal,
+  UserSearch,
+  ListOrdered,
+  Sword
+} from 'lucide-react';
+
+
+
+> در این صفحه کامند های مربوط به /sunset رو میتونید برسی کنید
+
+<Cards>
+
+  <Card title="/sunset player – جست‌وجوی پلیر" href="#جستوجوی-پلیر" icon={<UserSearch className="w-5 h-5" />}>
+    پلیر را با **آیدی عددی** یا **استیم هگز** سریع پیدا کنید
+    
+  </Card>
+
+  <Card title="/sunset info – اطلاعات کلی سرور" href="#اطلاعات-کلی-سرور" icon={<Info className="w-5 h-5" />}>
+    وضعیت عمومی سرور را می‌دهد.
+  </Card>
+
+  <Card title="/sunset ganglist – گنگ‌های برتر" href="#گنگ-های-برتر" icon={<Trophy className="w-5 h-5" />}>
+    نمایش لیست گنگ های برتر براساس لول
+  </Card>
+
+    <Card title="/sunset top kill – تاپ کیلر کپچر" href="#تاپ-کیلر-کپچر" icon={<Sword className="w-5 h-5" />}>
+    نمایش بهترین کیلرها در بازه‌های **آخرین**, **درهفته**, **درماه** و **درسال**.
+  </Card>
+
+    <Card title="/sunset top ping – ۲۰ پلیر با پینگ کمتر" href="#تاپ-پینگ" icon={<Signal className="w-5 h-5" />}>
+    نمایش 20 پلیر برتر براساس کمترین پینگ در سرور سانست
+  </Card>
+
+    <Card title="/sunset top id – ۲۰ پلیر با آیدی کمتر" href="#تاپ-ایدی" icon={<ListOrdered className="w-5 h-5" />}>
+    نمایش 20 پلیر برتر براساس کمترین ایدی در سرور سانست
+  </Card>
+
+</Cards>
+
+
+### مثال های استفاده از دستورات
+در پایین میتونید نمونه دستورات رو ببینید
+
+### جست‌وجوی پلیر
+
+<Callout type="info" title="جست‌وجوی پلیر">
+با استیم هگز:
+```
+/sunset player identifier:steam:11000010A1B2C3
+```
+با ایدی عددی:
+```
+/sunset player identifier:26
+```
+</Callout>
+
+### اطلاعات کلی سرور
+
+<Callout type="info" title="اطلاعات کلی سرور">
+نمایش اطلاعات جزی از سرور
+```
+/sunset info
+```
+</Callout>
+
+
+### گنگ های برتر
+
+<Callout type="info" title="گنگ های برتر">
+نمایش لیست تمام گنگ ها براساس لول (فقط گنگ های لول 5 به بالا نمایش داده میشه)
+```
+/sunset ganglist
+```
+</Callout>
+
+### تاپ کیلر کپچر
+
+<Callout type="info" title="تاپ کیلر کپچر">
+نمایش لیست برترین پلیرهای کپچر
+```
+/sunset top kill scope:
+```
+توی بخش scope باید انتخاب کنید که اخرین نفر باشه یا درهفته یا درماه ...
+
+</Callout>
+
+### تاپ پینگ
+
+<Callout type="info" title="تاپ پینگ">
+نمایش پلیرها براساس پینگ کمتر
+```
+/sunset top ping
+```
+</Callout>
+
+### تاپ ایدی
+
+<Callout type="info" title="تاپ ایدی">
+نمایش پلیرها براساس ایدی عددی کمتر
+```
+/sunset top id
+```
+</Callout>

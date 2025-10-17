@@ -1,0 +1,104 @@
+---
+title: سیستم تیکت
+description: "دستورات و کامندهای مربوط به سیستم تیکت + مثال‌های آماده"
+icon: Ticket
+---
+
+import { Card, Cards } from "fumadocs-ui/components/card";
+import { ImageZoom } from "fumadocs-ui/components/image-zoom";
+import { 
+  Ticket, 
+  Settings, 
+  MessageSquare, 
+  Users, 
+  Shield, 
+  Clock,
+  CheckCircle,
+  AlertCircle,
+  Zap,
+  BarChart3
+} from 'lucide-react';
+
+> در این صفحه کامند های مربوط به سیستم تیکت رو میتونید بررسی کنید
+
+<Cards>
+
+  <Card title="/ticket init – ایجاد پنل تیکت" href="#ایجاد-پنل-تیکت" icon={<Ticket className="w-5 h-5 text-blue-500" />}>
+    ارسال پنل تیکت در کانال فعلی برای ایجاد تیکت جدید
+    
+  </Card>
+
+  <Card title="/ticket settings – تنظیمات تیکت" href="#تنظیمات-تیکت" icon={<Settings className="w-5 h-5 text-green-500" />}>
+    باز کردن منوی تنظیمات برای پیکربندی سیستم تیکت
+    
+  </Card>
+
+  <Card title="ویژگی‌های سیستم" href="#ویژگی-های-سیستم" icon={<Zap className="w-5 h-5 text-purple-500" />}>
+    معرفی قابلیت‌های پیشرفته سیستم تیکت
+    
+  </Card>
+
+  <Card title="بهترین شیوه‌ها" href="#بهترین-شیوه-ها" icon={<CheckCircle className="w-5 h-5 text-teal-500" />}>
+    راهنمای استفاده بهینه از سیستم تیکت
+    
+  </Card>
+
+</Cards>
+
+### مثال های استفاده از دستورات
+در پایین میتونید نمونه دستورات رو ببینید
+
+### ایجاد پنل تیکت
+
+<Callout type="info" title="ایجاد پنل تیکت">
+ارسال پنل تیکت در کانال فعلی:
+```
+/ticket init
+```
+این دستور پنل تیکت را در کانال فعلی ایجاد می‌کند که کاربران می‌توانند تیکت جدید ایجاد کنند.
+<div style={{display: 'flex', gap: '10px', flexWrap: 'wrap', justifyContent: 'center'}}>
+<ImageZoom
+  src="/images/commands/ticket-panel.png"
+  alt="پنل تیکت"
+  width={300}
+  height={200}
+/>
+</div>
+
+**نمونه پنل تیکت که در کانال نمایش داده می‌شود**
+</Callout>
+
+
+
+
+### تنظیمات تیکت
+
+<Callout type="info" title="تنظیمات تیکت">
+باز کردن منوی تنظیمات:
+```
+/ticket settings
+```
+این منوی پیکربندی سیستم تیکت را باز می‌کند.
+<div style={{display: 'flex', gap: '10px', flexWrap: 'wrap', justifyContent: 'center'}}>
+<ImageZoom
+  src="/images/commands/ticket-management.png"
+  alt="منوی تنظیمات"
+  width={300}
+  height={200}
+/>
+</div>
+*منوی تنظیمات سیستم تیکت*
+</Callout>
+
+
+
+### ویژگی‌های سیستم
+
+<Callout type="info" title="ویژگی‌های سیستم تیکت">
+سیستم تیکت شامل موارد زیر است:
+
+- **انواع مختلف تیکت**: پشتیبانی از دسته‌بندی‌های مختلف تیکت (ثبت‌نام، میوه، رستوران و غیره)
+- **پیام‌های سفارشی**: پیام‌های شخصی‌سازی شده برای هر نوع تیکت
+- **دکمه ها**: پشتیبانی از دکمه های معمولی و منو ها در پنل تیکت
+- **ردیابی تیکت**: نگهداری وضعیت و تاریخچه تمام تیکت‌ها
+</Callout>

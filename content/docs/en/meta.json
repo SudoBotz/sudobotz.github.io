@@ -1,0 +1,9 @@
+{
+  "title": "GangBot Documentation",
+  "description": "Complete guide to GangBot Discord bot management",
+  "pages": [
+    "introduction",
+    "commands"
+  ],
+  "icon": "Bot"
+}
