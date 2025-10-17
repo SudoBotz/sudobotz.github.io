@@ -14,7 +14,7 @@ const vazirMatn = Vazirmatn({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://gangbot.loserbot.ir'),
+  metadataBase: new URL('https://sudobotz.github.io'),
   title: {
     default: 'SudoBotz - Discord Gang Management Bot',
     template: '%s | SudoBotz Documentation'
@@ -43,7 +43,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'website',
     locale: 'en_US',
-    url: 'https://gangbot.loserbot.ir',
+    url: 'https://sudobotz.github.io',
     siteName: 'SudoBotz',
     title: 'SudoBotz - Discord Gang Management Bot',
     description: 'SudoBotz is a powerful Discord bot designed specifically for gang and server management.',
@@ -64,7 +64,7 @@ export const metadata: Metadata = {
     creator: '@AmirKenzoo',
   },
   alternates: {
-    canonical: 'https://gangbot.loserbot.ir',
+    canonical: 'https://sudobotz.github.io',
     languages: {
       'en': '/en',
       'fa': '/fa',

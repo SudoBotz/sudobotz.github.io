@@ -79,7 +79,7 @@ export async function generateMetadata(props: {
   const canonicalUrl = `/${lang}${slug}`;
 
   return {
-    metadataBase: new URL('https://gangbot.loserbot.ir'),
+    metadataBase: new URL('https://sudobotz.github.io'),
     title: pageTitle,
     description: pageDescription,
     icons: {

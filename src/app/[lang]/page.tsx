@@ -26,7 +26,7 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: str
     // Default to English if invalid language
     const translations = loadTranslations('en');
     return {
-      metadataBase: new URL('https://gangbot.loserbot.ir'),
+      metadataBase: new URL('https://sudobotz.github.io'),
       title: translations.appName,
       description: translations.appDescription,
       icons: {
@@ -61,7 +61,7 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: str
   const translations = loadTranslations(lang);
   
   return {
-    metadataBase: new URL('https://gangbot.loserbot.ir'),
+    metadataBase: new URL('https://sudobotz.github.io'),
     title: translations.appName,
     description: translations.appDescription,
     icons: {
