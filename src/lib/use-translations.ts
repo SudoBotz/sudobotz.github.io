@@ -45,7 +45,7 @@ export function useTranslations(): { t: (key: string) => string; locale: string 
             // Use hardcoded fallback
             const fallbackTranslations: Translations = {
               appName: 'SudoBotz',
-              appDescription: 'Censorship-resistant GUI integrated solution',
+              appDescription: 'SudoBotz is a powerful Discord bot designed specifically for gang and server management.',
               version: 'V1 First Version',
               documentation: 'Documentation',
               github: 'GitHub',
@@ -82,7 +82,7 @@ export function useTranslations(): { t: (key: string) => string; locale: string 
           // Use hardcoded fallback for English
           const fallbackTranslations: Translations = {
             appName: 'SudoBotz',
-            appDescription: 'Censorship-resistant GUI integrated solution',
+            appDescription: 'SudoBotz is a powerful Discord bot designed specifically for gang and server management.',
             version: 'V1 First Version',
             documentation: 'Documentation',
             github: 'GitHub',
