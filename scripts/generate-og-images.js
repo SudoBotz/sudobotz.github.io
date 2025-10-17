@@ -256,7 +256,7 @@ async function getAllPages() {
   pages.push({
     filename: 'home.png',
     title: 'SudoBotz',
-    description: 'Censorship-resistant GUI integrated solution',
+    description: 'SudoBotz is a powerful Discord bot designed specifically for gang and server management.',
     type: 'article',
     path: '/'
   });
