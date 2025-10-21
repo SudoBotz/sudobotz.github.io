@@ -5,6 +5,7 @@
   "pages": [
     "welcome",
     "autorole",
+    "capture",
     "craft",
     "sunset",
     "ticket"
