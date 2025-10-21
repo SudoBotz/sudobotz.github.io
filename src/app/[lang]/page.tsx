@@ -165,36 +165,36 @@ export default async function LocaleHomePage({ params }: { params: Promise<{ lan
           {/* Feature Cards */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl w-full">
             {/* Commands Card */}
-            <Link href={`/${lang}/commands`} className="block">
+            <Link href={`/${lang}/introduction`} className="block">
               <Card className="group hover:shadow-lg transition-all duration-300 cursor-pointer h-full">
                 <CardHeader className="pb-4">
                   <div className="flex items-center justify-between">
                     <Terminal className="w-8 h-8 text-primary" />
                     <ArrowRight className={`w-5 h-5 text-muted-foreground group-hover:text-foreground transition-colors ${isRTL ? 'rotate-180' : ''}`} />
                   </div>
-                  <CardTitle className="text-2xl">دستورات ربات</CardTitle>
+                  <CardTitle className="text-2xl">{translations.introduction.title}</CardTitle>
                 </CardHeader>
                 <CardContent>
                   <CardDescription className="text-sm leading-relaxed">
-                    لیست کامل تمام دستورات ربات با توضیحات دقیق و نمونه‌های استفاده
+                    {translations.introduction.description}
                   </CardDescription>
                 </CardContent>
               </Card>
             </Link>
 
             {/* Gang Management Card */}
-            <Link href={`/${lang}/commands/gang`} className="block">
+            <Link href={`/${lang}/commands/welcome`} className="block">
               <Card className="group hover:shadow-lg transition-all duration-300 cursor-pointer h-full">
                 <CardHeader className="pb-4">
                   <div className="flex items-center justify-between">
                     <Box className="w-8 h-8 text-primary" />
                     <ArrowRight className={`w-5 h-5 text-muted-foreground group-hover:text-foreground transition-colors ${isRTL ? 'rotate-180' : ''}`} />
                   </div>
-                  <CardTitle className="text-2xl">مدیریت گنگ</CardTitle>
+                  <CardTitle className="text-2xl">{translations.wellcome.title}</CardTitle>
                 </CardHeader>
                 <CardContent>
                   <CardDescription className="text-sm leading-relaxed">
-                    مدیریت اعضای گنگ، آمار و فعالیت‌های مربوط به گنگ
+                  {translations.wellcome.description}
                   </CardDescription>
                 </CardContent>
               </Card>
@@ -208,11 +208,11 @@ export default async function LocaleHomePage({ params }: { params: Promise<{ lan
                     <Network className="w-8 h-8 text-primary" />
                     <ArrowRight className={`w-5 h-5 text-muted-foreground group-hover:text-foreground transition-colors ${isRTL ? 'rotate-180' : ''}`} />
                   </div>
-                  <CardTitle className="text-2xl">سیستم تیکت</CardTitle>
+                  <CardTitle className="text-2xl">{translations.ticket.title}</CardTitle>
                 </CardHeader>
                 <CardContent>
                   <CardDescription className="text-sm leading-relaxed">
-                  دستورات مدیریت و پیکربندی تیکت
+                  {translations.ticket.description}
                   </CardDescription>
                 </CardContent>
               </Card>

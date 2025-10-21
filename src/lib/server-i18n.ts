@@ -6,15 +6,15 @@ export interface Translations {
   version: string;
   documentation: string;
   github: string;
-  panel: {
+  introduction: {
     title: string;
     description: string;
   };
-  node: {
+  wellcome: {
     title: string;
     description: string;
   };
-  commands: {
+  ticket: {
     title: string;
     description: string;
   };

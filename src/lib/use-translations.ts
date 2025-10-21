@@ -49,17 +49,17 @@ export function useTranslations(): { t: (key: string) => string; locale: string 
               version: 'V1 First Version',
               documentation: 'Documentation',
               github: 'GitHub',
-              panel: {
-                title: 'Panel',
-                description: 'Explore the best VPN panel with maximum customization capabilities'
+              introduction: {
+                title: 'introduction',
+                description: 'A powerful and dedicated bot for professional management of Gangside servers'
               },
-              node: {
-                title: 'Node',
-                description: 'Discover SudoBotz Node and other features'
+              wellcome: {
+                title: 'Welcome system',
+                description: 'Instructions and commands related to setting the welcome message for new members + ready examples'
               },
-              commands: {
-                title: 'Commands',
-                description: 'List of commands for launching, analyzing, building, and previewing your application'
+              ticket: {
+                title: 'ticket system',
+                description: 'Commands related to the ticket system + ready examples'
               },
               search: {
                 placeholder: 'Search documentation...',
@@ -86,17 +86,17 @@ export function useTranslations(): { t: (key: string) => string; locale: string 
             version: 'V1 First Version',
             documentation: 'Documentation',
             github: 'GitHub',
-            panel: {
-              title: 'Panel',
-              description: 'Explore the best VPN panel with maximum customization capabilities'
+            introduction: {
+              title: 'introductionn',
+              description: 'A powerful and dedicated bot for professional management of Gangside servers'
             },
-            node: {
-              title: 'Node',
-              description: 'Discover SudoBotz Node and other features'
+            wellcome: {
+              title: 'Welcome system',
+              description: 'Instructions and commands related to setting the welcome message for new members + ready examples'
             },
-            commands: {
-              title: 'Commands',
-              description: 'List of commands for launching, analyzing, building, and previewing your application'
+            ticket: {
+              title: 'ticket system',
+              description: 'Commands related to the ticket system + ready examples'
             },
             search: {
               placeholder: 'Search documentation...',
