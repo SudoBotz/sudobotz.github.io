@@ -4,6 +4,7 @@
   "icon": "BotMessageSquare",
   "pages": [
     "welcome",
+    "autorole",
     "craft",
     "sunset",
     "ticket"
