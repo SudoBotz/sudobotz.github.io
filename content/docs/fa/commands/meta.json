@@ -3,6 +3,7 @@
   "description": "مرجع کامل دستورات ربات دیسکورد",
   "icon": "BotMessageSquare",
   "pages": [
+    "welcome",
     "craft",
     "sunset",
     "ticket"
