@@ -5,6 +5,7 @@
   "pages": [
     "...introduction",
     "commands",
-    "...faq"
+    "...faq",
+    "...changelog"
   ]
 }
